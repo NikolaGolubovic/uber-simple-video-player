@@ -1,38 +1,210 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (min-width: 280px) {
+  /* VIDEO PLAYER */
+  .video-container {
+    width: 95%;
+    height: 450px;
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+  .video-container.full {
+    width: 100%;
+    height: 100vh;
+    background: black;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 0;
+  }
+  .player {
+    width: 100%;
+    overflow: hidden;
+  }
+  .video-container.full .player {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+  video, .controlls {
+    width: 100%;
+  }
+  .video-container.full video, .video-container.full .controlls {
+    width: 100%;
+  }
+  video {
+    height: 100%;
+  }
+  .controlls {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+    bottom: 60px;
+    padding: 0px 10px;
+    height: 50px;
+    background: rgb(0, 0, 0, 0.02);
+  }
+  .video-container:hover .controlls {
+    display: flex;
+  }
+  .progress {
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 0, 0, 0.2);
+    transition: height 0.3s;
+    cursor: pointer;
+  }
+  .progress-filled {
+    width: 50%;
+    height: 5px;
+    background: #FF0100;
+    flex: 0;
+    flex-basis: 50%;
+    border-radius: 0px 50px 30px 0;
+  }
+  .controller-left-half {
+    display: flex;
+    align-items: center;
+    flex-basis: 70%;
+    justify-content: flex-start;
+  }
+  .player-button-container {
+    display: flex;
+    height: 30px;
+    width: 20px;
+  }
+  .player-button {
+    color: white;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    position: relative;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  .next-video-icon {
+    margin: 0 0px 0 10px;
+  }
+  .volume-icon {
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  .video-volume-container {
+    display: flex;
+    align-items: center;
+    width: 130px;
+  }
+  .video-time {
+    display: flex;
+    position: relative;
+    top: -2px;
+    left: -10px;
+    font-size: 0.9rem;
+    justify-content: flex-start;
+  }
+  #myinput {
+    background: linear-gradient(to right, white 0%, white 50%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2) 100%);
+    border-radius: 8px;
+    height: 3px;
+    width: 50%;
+    outline: none;
+    transition: background 450ms ease-in;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    box-shadow: 0px 15px 30px rgba(0, 255, 231, 0.6);
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background-position: center;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+  }
+  .controller-right-half {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-basis: 30%;
+  }
+  .controller-right-half>* {
+    margin-left: 10px;
+  }
+  .speed-settings {
+    position: relative;
+  }
+  .speedometar {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .options {
+    position: absolute;
+    bottom: 50px;
+    left: -10px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.4);
+    width: 550%;
+    display: none;
+  }
+  .options::before {
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    left: -30px;
+    bottom: 0;
+    width: 30px;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  .options.active {
+    display: block;
+  }
+  .option {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    display: flex;
+  }
+  .option:hover {
+    background: rgb(165, 159, 159, 0.);
+    text-decoration: underline;
+  }
+  .option.active {
+    position: relative;
+    left: -15px;
+  }
+  .checkmark {
+    color: white;
+    display: none;
+    position: relative;
+    width: 15px;
+    position: relative;
+    right: 10px;
+    top: 2px;
+  }
+  .checkmark.active {
+    display: block;
+  }
+  .full-screen-icon {
+    font-size: 24px;
+    cursor: pointer;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media (min-width: 768px) {
+  /* VIDEO PLAYER */
+  .video-container {
+    width: 60%;
+    height: 450px;
+    margin: 0 auto;
+    margin-top: 100px;
   }
 }
